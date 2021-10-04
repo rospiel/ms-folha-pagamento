@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "096cff11-0a0f-461e-a644-0acf61889d5d",
+		"name": "FolhaPagamento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET FOLHA PAGAMENTO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/folhaPagamentos/:pessoaUuid/:dias",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"folhaPagamentos",
+						":pessoaUuid",
+						":dias"
+					],
+					"variable": [
+						{
+							"key": "pessoaUuid",
+							"value": "0b9c16d0-609e-4ea1-be72-5464332bf045"
+						},
+						{
+							"key": "dias",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
