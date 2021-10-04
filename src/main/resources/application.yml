@@ -1,2 +1,5 @@
 server:
   port: 7272
+
+ms-pessoa:
+  host: http://localhost:7171
