@@ -5,6 +5,7 @@ import br.com.application.dataproviders.restclient.pessoa.PessoaFeignClient;
 import br.com.application.dataproviders.restclient.pessoa.PessoaResponse;
 import br.com.application.entrypoints.dtos.FolhaPagamentoResponse;
 import br.com.application.entrypoints.mapper.FolhaPagamentoMapper;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class BuscarFolhaPagamentoUseCase {
     private final FolhaPagamentoMapper folhaPagamentoMapper;
     private final PessoaFeignClient pessoaFeignClient;
 
+    @HystrixCommand(fallbackMethod = "buscarFolhaPagamentoAlternativo")
     public FolhaPagamentoResponse buscarFolhaPagamento(String pessoaUuid, Long dias) {
         PessoaResponse pessoa = pessoaFeignClient.buscarPeloUuid(pessoaUuid);
         if (isBlank(pessoa.getUuid())) {
@@ -30,5 +32,9 @@ public class BuscarFolhaPagamentoUseCase {
                 .build();
 
         return folhaPagamentoMapper.mapPessoaResponse(folhaPagamento);
+    }
+
+    public FolhaPagamentoResponse buscarFolhaPagamentoAlternativo(String pessoaUuid, Long dias) {
+        return new FolhaPagamentoResponse();
     }
 }
