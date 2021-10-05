@@ -1,5 +1,7 @@
 server:
-  port: 7272
+  port: 7370
 
 ms-pessoa:
-  host: http://localhost:7171
+  # host: http://localhost:7171
+  ribbon:
+    listOfServers: localhost:7171, localhost:7272

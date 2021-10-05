@@ -18,7 +18,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 @RequiredArgsConstructor
 public class PessoaRestClientImpl implements PessoaRestClient {
 
-    @Value("${ms-pessoa.host}")
+    // @Value("${ms-pessoa.host}")
     private String pessoaHost;
 
     private final RestTemplate restTemplate;
