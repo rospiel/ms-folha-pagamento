@@ -1,7 +1,7 @@
 server:
   port: 7370
 
-ms-pessoa:
-  # host: http://localhost:7171
-  ribbon:
-    listOfServers: localhost:7171, localhost:7272
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
