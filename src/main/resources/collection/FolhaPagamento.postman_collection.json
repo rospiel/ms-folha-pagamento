@@ -8,6 +8,16 @@
 		{
 			"name": "GET FOLHA PAGAMENTO",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -23,7 +33,7 @@
 					"variable": [
 						{
 							"key": "pessoaUuid",
-							"value": "0b9c16d0-609e-4ea1-be72-5464332bf045"
+							"value": "cd615ac3-a10d-49d6-9dbe-b773740b4028"
 						},
 						{
 							"key": "dias",
